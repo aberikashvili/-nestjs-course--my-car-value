@@ -1,5 +1,3 @@
-.env.development
-.env.test
 test.sqlite
 
 # compiled output
