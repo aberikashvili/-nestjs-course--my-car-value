@@ -1,0 +1,40 @@
+### Register
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "email": "arkadi.berikashvili90@gamil.com",
+    "password": "test123"
+}
+
+### Login
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "email": "arkadi.berikashvili90@gamil.com",
+    "password": "test123"
+}
+
+### WHOAMI
+GET http://localhost:3000/auth/whoami
+
+### Logout
+POST http://localhost:3000/auth/signout
+
+### Find One
+GET http://localhost:3000/auth/2
+
+### Find All Users
+GET http://localhost:3000/auth?email=arkadi.berikashvili90@gamil.com
+
+### Delete User With Given ID
+DELETE http://localhost:3000/auth/1
+
+### Update User
+PATCH http://localhost:3000/auth/2
+Content-Type: application/json
+
+{
+    "email": "arkadi.berikashvili@gmail.com"
+}

@@ -1,0 +1,8 @@
+### Operator: of
+GET http://localhost:3000/rxjs/of
+
+### Operator: map
+GET http://localhost:3000/rxjs/map
+
+### Operator: mswitchMp
+GET http://localhost:3000/rxjs/switch-map
