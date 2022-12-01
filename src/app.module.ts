@@ -12,6 +12,8 @@ import { RxjsModule } from './rxjs/rxjs.module';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const cookieSession = require('cookie-session');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const dbConfig = require('../ormconfig.js');
 
 @Module({
   imports: [
@@ -19,17 +21,18 @@ const cookieSession = require('cookie-session');
       isGlobal: true,
       envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
+    TypeOrmModule.forRoot(dbConfig),
+    // TypeOrmModule.forRootAsync({
+    //   inject: [ConfigService],
+    //   useFactory: (config: ConfigService) => ({
+    //     type: 'sqlite',
+    //     database: config.get<string>('DB_NAME'),
+    //     synchronize: true,
+    //     entities: [UserEntity, ReportEntity],
+    //   }),
+    // }),
     UsersModule,
     ReportsModule,
-    TypeOrmModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
-        type: 'sqlite',
-        database: config.get<string>('DB_NAME'),
-        synchronize: true,
-        entities: [UserEntity, ReportEntity],
-      }),
-    }),
     RxjsModule,
     // TypeOrmModule.forRoot({
     //   type: 'sqlite',
